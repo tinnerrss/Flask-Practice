@@ -47,6 +47,7 @@ flask run
 | ------ | ------------- | ---------------------------------------------------------- |
 | GET | `/` | Render a home page that sends the string "Hello World" |
 | GET | `/greeting` | Pass a name variable to a template that renders a personalized greeting |
+| GET | `/pie` | Return a JSON object that contains a key-value pair |
 
 ------------
 
@@ -74,7 +75,7 @@ export FLASK_ENV=development
 export FLASK_APP=app.py
 ```
 
-## Problem 2: Rendering Like Rembrandt
+## Problem 2: Render Like Rembrandt
 
 ### Skill You're Practicing: Using templates to render Python
 
@@ -94,62 +95,92 @@ render_template('index.html', name='Akilah')
 
 **Hint 1:**
 
-Remember: Templates for variables use the double brackets `{{}}`.
+Remember: In templates, to render a variable's value, use the double brackets `{{}}`.
 
 **Hint 2:**
 
-Don't forget the module `render_template`.
+Don't forget to import the module `render_template` from Flask.
 
-**Hint 3:**
+**Checkpoint:**
 
-Your directory should look like:
+Your directory should now look like:
 
 ```
 project
 │   
-│
-└───app
-│   │   problem1.py
-│   │   
-│   │
-│   └───templates
-│   │    └─── index.html
-│   │
-│   │
-│   └───static
-│       └───style.css
+│app.py
+│   
+│templates
+│   └─── index.html
+│   
+│static
+│   └───style.css
 ```
 
 ------
 
-## Problem 2: "A Detective, a PI"
+## Problem 3: All I See is Static
+
+### Skill You're Practicing: Serving Static Files
+
+Create a `static` folder in the top-level of your project directory. This is where files like CSS, images, audio, and front-end JavaScript live. Inside your `static` folder, create a file called `style.css`. 
+
+In your `style.css` file, add some styling to change the color of your text to green (or any color other than the default!). Last, add a link tag in your index.html template to `/static/style.css`. Unlike some other languages, "static" is part of the url path.
+
+```html
+<link type="text/css" rel="stylesheet" href="/static/style.css">
+```
+
+Go check your browser to see if your changes took effect. 
+
+> Note: You may have to do a hard reload (Mac Shortcut: Command + Shift + R)
+
+**Hint: If it didn't work...**
+
+If you did a hard reload and restarted the server and you still don't see your CSS changes, open the "Network" tab in your developer tools. Do a page refresh. In the list that comes up, do you see `style.css`? If it is in red and the status is anything other than 200 something, you may have written the wrong path in your link tag or perhaps forgotten to add the link tag!
+
+**Checkpoint:**
+
+Your directory should now look like:
+
+```
+project
+│   
+│app.py
+│   
+│templates
+│   └─── index.html
+│   
+│static
+│   └───style.css
+```
+
+## Problem 4: A Detective, A PI
 
 ### Skill You're Practicing: Creating an API
 
-Write a Flask app that makes a `GET` request and returns a JSON of one of the items in a list.
+Write a new route in your Flask app that can be accessed via a `GET` request to `/pie` and returns a JSON object of one of the items in a list. Make your JSON object with the `jsonify` function. Create your own `ingredients` list with at least 3 items, which should be strings.
 
 
-#### Example Test Code
+#### Starter Code
+
 ```
 return jsonify({'pie ingredient': 'ingredients[0]'})
 ```
 
-#### Example Test Output
+#### Example Output
+
 ```
 {'pie ingredient': 'apples'}
 ```
 
-**Hint 1:**
+**Bonus:**
 
-Refer to your class notes from the Variables lesson for how to read in a variable directly in a Flask app.
+Make which ingredient you return each time selected at random.
 
-**Hint 2:**
+**Hint:**
 
-There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`.
-
-**Hint 3:**
-
-Try passing the variable name into your function, as well as making that your endpoint in the route.
+Remember to import `jsonify`!
 
 ----
 
