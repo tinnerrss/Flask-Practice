@@ -21,8 +21,8 @@ You will practice these programming concepts we've covered in class:
 
 * Rendering templates
 * Passing variables to templates
-* Creating an API
-* Making `GET`/`POST` requests
+* Creating an API (sending JSON)
+* Making `GET` routes
 
 ------------
 
@@ -184,36 +184,44 @@ Remember to import `jsonify`!
 
 ----
 
-## Problem 3: "The POST Man Deliverth"
+## Bonus: The POST Man Deliverth
 
-### Skill You're Practicing: Creating an API.
+### Skill You're Practicing: POST routes
 
-Write a Flask app that makes a `POST` request and returns a JSON of one of the items in a list.
+Easy breezy? Flask is nice! If you finished this assignment in less than an hour, please attempt the following bonus routes:
+
+| METHOD | PATH | FUNCTIONALITY |
+| ------ | ------------- | ---------------------------------------------------------- |
+| GET | `/recipe` | Render a template that shows the name of a pie, all ingredients, and a new ingredient form |
+| POST | `/recipe` | The form from the GET page sends a new ingredient. Add this to your ingredients list then redirect back to `/recipe` |
+
+> Hint: Keep `ingredients` as a global variable that you declare outside of any particular route.
 
 
-#### Example Test Code
+#### Starter Code
+
 ```
 ingredients.append(ingredient)
-return jsonify({'pie ingredient': ingredients})
-```
-
-#### Example Test Output
-```
-{'pie ingredient': 'apples'}
+return redirect('/recipe')
 ```
 
 **Hint 1:**
 
-Refer to your class notes from the Variables lesson for how to read in a variable directly in a Flask app.
+Remember to import the `redirect` module.
+
 
 **Hint 2:**
 
-There are two modules that we'll need to execute this, in addition to our standard `from flask import Flask`: `jsonify`, and `requests`.
+You can access the method (the HTTP verb) via `request.method`. 
 
 **Hint 3:**
 
-Try passing the variable name into your function, as well as making that your endpoint in the route.
+You can access the form data passed to your route according to the "name" property you put on your HTML input tag. For example, if you named your input "ingredient", you can access the value like so:
 
-**Hint 4:**
+```python
+new_ingredient = request.form["ingredient"]
+```
 
-`request.get_json()`
+### That's It!
+
+Have a RESTful weekend!
