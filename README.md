@@ -41,11 +41,37 @@ flask run
 
 ## Requirements:
 
-* By the end of this, you should have four different `.py` files (three for the first problem and one for the second problem).
+* By the end of this, you should have ONE Flask app that meets the following criteria:
+
+| METHOD | PATH | FUNCTIONALITY |
+| ------ | ------------- | ---------------------------------------------------------- |
+| GET | `/` | Render a home page that sends the string "Hello World" |
 
 ------------
 
-## Problem 1: "Rendering Like Rembrandt"
+## Problem 1: Hello World
+
+Set up a Flask app skeleton. This will include making a python server file - this will be named something like `app.py`. 
+
+`app.py` should include the following:
+
+* Import Flask
+* Declare your app variable
+* Make your home page route (Hint: Use `@app.route()`)
+* Return the string "Hello World"
+
+At this point, run your app with `flask run` and see what happens!
+
+> HINT: You may want to set some environment variables such as FLASK_APP and FLASK_ENV.
+
+If you ran into an error when running your app, try setting these variables via the command line:
+
+```
+export FLASK_ENV=development
+export FLASK_APP=app.py
+```
+
+## Problem 2: "Rendering Like Rembrandt"
 
 ### Skill You're Practicing: Using templates to render Python.
 
@@ -54,6 +80,7 @@ Create a Flask app that renders an HTML template. In the template, display a gre
 Then, create a CSS change the color of the font of your template's variable.
 
 #### Example Test Code
+
 ```
 render_template('index.html', name=user)
 ```
