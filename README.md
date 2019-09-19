@@ -46,10 +46,13 @@ flask run
 | METHOD | PATH | FUNCTIONALITY |
 | ------ | ------------- | ---------------------------------------------------------- |
 | GET | `/` | Render a home page that sends the string "Hello World" |
+| GET | `/greeting` | Pass a name variable to a template that renders a personalized greeting |
 
 ------------
 
 ## Problem 1: Hello World
+
+### Skill You're Practicing: Creating a Flask app from scratch
 
 Set up a Flask app skeleton. This will include making a python server file - this will be named something like `app.py`. 
 
@@ -71,21 +74,20 @@ export FLASK_ENV=development
 export FLASK_APP=app.py
 ```
 
-## Problem 2: "Rendering Like Rembrandt"
+## Problem 2: Rendering Like Rembrandt
 
-### Skill You're Practicing: Using templates to render Python.
+### Skill You're Practicing: Using templates to render Python
 
-Create a Flask app that renders an HTML template. In the template, display a greeting and a `name` variable (don't forget to pass the template the argument!).
+Create a new route in your Flask app that renders an HTML template that can be accessed at the url `/greeting`. In the template, display a greeting and a `name` variable (don't forget to pass the template the argument!). Look up the `render_template` function to get started. You will need to create a `templates` folder and an `index.html` file inside that `templates` folder in order for the code to work.
 
-Then, create a CSS change the color of the font of your template's variable.
-
-#### Example Test Code
+#### Starter Code
 
 ```
-render_template('index.html', name=user)
+render_template('index.html', name='Akilah')
 ```
 
-#### Example Test Output
+#### Example Output (In-Browser)
+
 ```
 "Hi there Akilah. It's great to see you today!"
 ```
@@ -122,7 +124,7 @@ project
 
 ## Problem 2: "A Detective, a PI"
 
-### Skill You're Practicing: Creating an API.
+### Skill You're Practicing: Creating an API
 
 Write a Flask app that makes a `GET` request and returns a JSON of one of the items in a list.
 
