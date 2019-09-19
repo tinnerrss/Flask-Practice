@@ -224,4 +224,4 @@ new_ingredient = request.form["ingredient"]
 
 ### That's It!
 
-Have a RESTful weekend!
+Have a RESTful evening!
