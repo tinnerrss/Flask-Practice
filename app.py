@@ -10,3 +10,4 @@ def hello_world():
 @app.route('/greeting')
 def greeting():
     return render_template('index.html', name="Akilah")
+
