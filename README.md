@@ -165,7 +165,7 @@ Write a new route in your Flask app that can be accessed via a `GET` request to 
 #### Starter Code
 
 ```
-return jsonify({'pie ingredient': 'ingredients[0]'})
+return jsonify({'pie ingredient': ingredients[0]})
 ```
 
 #### Example Output
