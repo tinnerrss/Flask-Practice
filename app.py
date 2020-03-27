@@ -1,4 +1,4 @@
-from flask import Flask , render_template
+from flask import Flask , render_template, jsonify
 
 app=Flask(__name__)
 
@@ -11,7 +11,12 @@ def greeting():
     owner = "Akilah"
     return render_template('index.html', owner=owner)
 
-# @app.route('/pie')
-# def pie():
+@app.route('/pie')
+def pie():
+    recipes = {
+        'pie ingredients': ['apples', 'sugar', 'flour']
+        }
+    return jsonify({'pie ingredients': recipes['pie ingredients'][0]})
+
 
 
